@@ -1,4 +1,5 @@
 from src.pubmed.module import query_pubmed
+from src.api import parse_pubmed_details
 
 
 def main():
@@ -27,13 +28,18 @@ def main():
 
     try:
         results = query_pubmed(args.query, debug=args.debug)
+        articles = parse_pubmed_details(results)
+        
         if args.file:
             with open(args.file, "w") as file:
                 json.dump(results, file, indent=4)
             print(f"Results saved to {args.file}")
         else:
-            print("Results:")
-            print(json.dumps(results, indent=4))
+            for article in articles:
+                print("\n--- Article Details ---")
+                for key, value in article.items():
+                    print(f"■ {key}: {value}")
+            
     except RuntimeError as e:
         print(f"Error: {e}")
 

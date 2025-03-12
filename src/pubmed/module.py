@@ -7,4 +7,4 @@ def query_pubmed(query, debug=False):
         return {"error": "No results found."}
     
     details = fetch_pubmed_details(pmids, debug=debug)
-    return {"pmids": pmids, "details": details}
+    return details
