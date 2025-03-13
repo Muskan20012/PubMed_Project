@@ -1,15 +1,27 @@
 [project]
-name = "pubmed"
+name = "pubmed-nonacademic-fetcher-muskan"
 version = "0.1.0"
-description = ""
+
+description = "A CLI tool for querying PubMed articles"
+
 authors = [
     {name = "Muskan Verma",email = "muskan.16verma@gmail.com"}
 ]
+
 readme = "README.md"
+
 requires-python = ">=3.12"
+
+license="MIT"
+
+keywords = ["PubMed", "CLI", "articles", "bioinformatics"]
+
 dependencies = [
+    "requests (>=2.32.3,<3.0.0)",
+    "aiohttp (>=3.11.13,<4.0.0)",
+    "lxml (>=5.3.1,<6.0.0)",
     "python-dotenv (>=1.0.1,<2.0.0)",
-    "requests (>=2.32.3,<3.0.0)"
+    "httpx (>=0.28.1,<0.29.0)"
 ]
 
 [tool.poetry]
@@ -21,4 +33,4 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-get-papers-list = "cli:main"
+get-papers-list = "src.pubmed.cli:main"
