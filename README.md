@@ -33,7 +33,7 @@ pubmed/
 
 1. **Clone the Repository**  
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/Muskan20012/PubMed_Project
    cd PubMed_project
    ```
 
